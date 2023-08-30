@@ -1,5 +1,3 @@
 console.log('test Edit')
 console.log("test Merge")
-console.log('test')
-console.log('conflict')
-a=1
+console.log("test Merge 2")
