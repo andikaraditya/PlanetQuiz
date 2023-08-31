@@ -109,34 +109,40 @@ function adjustScore(isCorrect) {
         leaderboard.push(user)
         updateLeaderboard()
     }
+    console.log(leaderboard)
 }
 
 function checkAnswer(answer) {
     // Untuk mengecek jawaban
 
-    if (answer.toLowerCase() === currentQuestion().name.toLowerCase()) {
+    if (answer.toLowerCase() === currentQuestion.name.toLowerCase()) {
         adjustScore(true)
         console.log("benar")
+        let isiDeskripsi = document.getElementById("isiDeskripsi")
+        isiDeskripsi.innerText = currentQuestion.description
     } else {
         // alert("Kamu salah")
         console.log("salah")
         adjustScore(false)
+        resetGame()
     }
 }
 
-
 function generateUser() {
-    // Untuk membuat user baru 
+    // Untuk membuat user baru
     // Sebagai awal memulai game
     username = prompt("Please enter your name")
     if (username !== null) {
         user = {
             name: username,
-            score: 0
+            score: 0,
         }
-    } else{
+    } else {
         generateUser()
     }
+
+    let astronaut = document.querySelector(".currentPlayer")
+    astronaut.innerHTML = `Astronout ${username} on Mission`
 }
 
 function resetQuestion() {
@@ -148,45 +154,99 @@ function resetQuestion() {
 
 function resetGame() {
     // Untuk mengulang game
+    isAnswered = true
+    updateLeaderboard()
     generateUser()
     resetQuestion()
+    nextQuestion()
 }
 
-function deleteLeaderboards() {
+function softReset() {
+    leaderboard.push(user)
+    showDetails.classList.toggle("remove")
+    resetGame()
+}
+
+function deleteLeaderboards(index) {
     // Untuk menghapus nama di leaderboard
-}
-
-function showDetails() {
-    // Untuk menampilkan detail planet
-    
+    leaderboard.splice(index, 1)
+    updateLeaderboard()
 }
 
 function sortLeaderboard() {
     // Untuk mengurutkan leaderboard berdasakan skor
     leaderboard = leaderboard.sort(function (a, b) {
-        return b.score - a.score;
+        return b.score - a.score
     })
 }
 
 function updateLeaderboard() {
     // Untuk refresh tampilan leaderboard
     sortLeaderboard()
+    if (leaderboard.length === 5) {
+        leaderboard.pop()
+    }
+    let leaderboardTable = document.querySelector("table")
+    leaderboardTable.innerHTML = ""
+    for (const item of leaderboard) {
+        leaderboardTable.innerHTML += `<tr>
+        <td class="counterCell">.</td>
+        <td id="player-1">${item.name}</td>
+        <td id="score-1">${item.score * 100}</td>
+        <td id="delete-1"><button>Kick</button></td>
+    </tr>`
+    }
+    let deleteButton = document.querySelectorAll("td button")
+    for (let i = 0; i < deleteButton.length; i++) {
+        deleteButton[i].addEventListener("click", function () {
+            deleteLeaderboards(i)
+            console.log("AAA")
+        })
+    }
 }
 
-function sendAnswer() {
+function sendAnswer(answer) {
     // Untuk mengambil input jawaban dan mengirimkan ke checkAnswer()
+    // let answer = document.getElementById("userAnswer")
     isAnswered = true
-
-    checkAnswer()
+    showDetails.classList.toggle("remove")
+    checkAnswer(answer.value)
+    userAnswerBox.value = ""
 }
 
 function nextQuestion() {
     // Menampilkan pertanyaan baru
+    // isAnswered = true
     if (!isAnswered) {
         alert("Pertanyaan belum dijawab")
         return
     }
+    showDetails.classList.toggle("remove")
     console.log("pass")
     currentQuestion = randomQuestion()
+
+    let suhu = document.getElementById("suhu")
+    let jarak = document.getElementById("jarak")
+    let type = document.getElementById("type")
+    let ukuran = document.getElementById("ukuran")
+    let ciri5 = document.getElementById("ciri-5")
+
+    suhu.innerText = `${currentQuestion.temperatureInCelcius} Celcius`
+    jarak.innerText = `${currentQuestion.distanceFromSunInAstronomicalUnits} Au`
+    type.innerText = currentQuestion.typeOfPlanet
+    ukuran.innerText = `${currentQuestion.diameterInKilometers} Km`
+    ciri5.innerText = `${currentQuestion.totalNaturalSatellites} Satelites`
+    
+
     isAnswered = false
 }
+
+let userAnswerBox = document.getElementById("userAnswer")
+userAnswerBox.addEventListener("keypress", function (e) {
+    if (e.key === "Enter") {
+        sendAnswer(userAnswerBox)
+    }
+})
+let showDetails = document.querySelector("#detail")
+
+resetGame()
