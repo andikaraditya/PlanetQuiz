@@ -7,36 +7,96 @@
     <title>Gues Tha Planet</title>
 </head>
 <body>
+
+
+    <!------------------------------ START HEADER  ------------------------------------------>
     <div class="header">
-        <div class = "title">Gues The Planet</div>
+        <div class = "title">PLANETARY <span>8</span></div>
         <div class="header-list">
             <ul>
-                <li>####</li>
-                <li><button>Change Player</button></li>
+                <li class="currentPlayer"><span>Astronout Kevin on Mission</span></li>
+                <li><button class="change">Choose Astronout</button></li>
             </ul>
         </div>
         <div class="parallelogram"></div>
     </div>
+    <!------------------------------ END HEADER  ------------------------------------------>
+
+
     <div class="content">
+
+
+
+    <!------------------------------------LEADERBOARD ------------------------------------------>
+    <div class="contLeader">
+        <div class="leaderboard">STAR RANK</div>
+        <div class="player">
+            <table>
+                <tr>
+                    <td class="counterCell">.</td>
+                    <td id="player-1">ANDIKA</td>
+                    <td id="score-1">000</td>
+                    <td id="delete-1"><button>Kick</button></td>
+                </tr>
+                <tr>
+                    <td class="counterCell">.</td>
+                    <td id="player-2">KEVIN</td>
+                    <td id="score-2">000</td>
+                    <td id="delete-2"><button>Kick</button></td>
+                </tr>
+                <tr>
+                    <td class="counterCell">.</td>
+                    <td id="player-3">RYAN</td>
+                    <td id="score-3">000</td>
+                    <td id="delete-3"><button>Kick</button></td>
+                </tr>
+                <tr>
+                    <td class="counterCell">.</td>
+                    <td id="player-4">GEMA</td>
+                    <td id="score-4">000</td>
+                    <td id="delete-4"><button>Kick</button></td>
+                </tr>
+                <tr>
+                    <td class="counterCell">.</td>
+                    <td id="player-5">open</td>
+                    <td id="score-5">000</td>
+                    <td id="delete-5"><button>Kick</button></td>
+                </tr>
+            </table>
+        </div>
+    </div>
+    <!------------------------------------LEADERBOARD ------------------------------------------>
+    
+    <div class="question">
         <div id="circle">?</div>
         <div id="suhu" class="ciri">suhu</div>
         <div id="jarak" class="ciri">jarak</div>
         <div id="type" class="ciri">type</div>
         <div id="ukuran" class="ciri">ukuran</div>
         <div id="ciri-5" class="ciri">ciri-5</div>
-        <input id="userAnswer" type="text" placeholder="Planet Apa Nich?">
-        <button id="next">Next</button>
+        <input id="userAnswer" type="text" placeholder="JUST GUESS">
+        <button id="next">Give Me More !!!</button>
         <button id="menyerah">Give Up</button>
-        <div id="leaderboard">
-            <h2>leaderboard</h2>
-        <div class="player">
-            <ul>
-                <li id="player-1">##### <span id="score-1">%%%%%</span></li>
-                <li id="player-2">##### <span id="score-2">%%%%%</span></li>
-                <li id="player-3">##### <span id="score-3">%%%%%</span></li>
-            </ul>
-        </div>
+        <button id="detail" onclick="location.href = '#description'">Explore More</button>
+        <div class="line-1"></div>
+        <div class="line-2"></div>
+        <div class="line-3"></div>
+        <div class="line-4"></div>
+        <div class="line-5"></div>
+
+        <div class="overlay" id="description">
+            <!-- <div class="area">
+                <div class="moon"></div>
+            </div> -->
+
+            <a href="#" class="close">[X] close</a>
+            <!-- <img src="Img/Full/moon.png" alt="moon"> -->
         </div>
     </div>    
+
+
+    </div>
+        
+
 </body>
 </html>
