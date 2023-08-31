@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="css/main.css">
-    <title>Gues Tha Planet</title>
+    <title>Guess That Planet</title>
 </head>
 <body>
 
@@ -15,7 +15,8 @@
         <div class="header-list">
             <ul>
                 <li class="currentPlayer"><span>Astronout Kevin on Mission</span></li>
-                <li><button class="change">Choose Astronout</button></li>
+                <li><button class="change" onclick="softReset()">Choose Astronout</button></li>
+                <li id="currentScore">Current Score: 0</li>
             </ul>
         </div>
         <div class="parallelogram"></div>
@@ -68,16 +69,16 @@
     <!------------------------------------LEADERBOARD ------------------------------------------>
     
     <div class="question">
-        <div id="circle">?</div>
+        <div id="circle"><img class="remove" src="Image\venus.png" id="planetImage"></div>
         <div id="suhu" class="ciri">suhu</div>
         <div id="jarak" class="ciri">jarak</div>
         <div id="type" class="ciri">type</div>
         <div id="ukuran" class="ciri">ukuran</div>
         <div id="ciri-5" class="ciri">ciri-5</div>
         <input id="userAnswer" type="text" placeholder="JUST GUESS">
-        <button id="next">Give Me More !!!</button>
-        <button id="menyerah">Give Up</button>
-        <button id="detail" onclick="location.href = '#description'">Explore More</button>
+        <button id="next" onclick="nextQuestion()">Give Me More !!!</button>
+        <button id="menyerah" onclick="toggleAnswer()">Give Up</button>
+        <button id="detail" class="remove" onclick="location.href = '#description'">Explore More</button>
         <div class="line-1"></div>
         <div class="line-2"></div>
         <div class="line-3"></div>
@@ -91,12 +92,13 @@
 
             <a href="#" class="close">[X] close</a>
             <!-- <img src="Img/Full/moon.png" alt="moon"> -->
+            <div id="isiDeskripsi">Mercury is the first planet from the Sun and the smallest planet in the Solar System. It is a terrestrial planet with a heavily cratered surface due to the planet having no geological activity and an extremely tenuous atmosphere (called an exosphere). Despite being the smallest planet in the Solar System with a mean diameter of 4,880 km (3,030 mi), 38% of that of Earth's, Mercury is dense enough to have roughly the same surface gravity as Mars. Mercury has a dynamic magnetic field with a strength about 1% of that of Earth's and has no natural satellites.</div>
         </div>
     </div>    
 
 
     </div>
         
-
+<script src="app.js"></script>
 </body>
 </html>
