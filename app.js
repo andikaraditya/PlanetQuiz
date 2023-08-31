@@ -243,10 +243,10 @@ function nextQuestion() {
     let ciri5 = document.getElementById("ciri-5")
 
     planetImage.src = currentQuestion.img
-    suhu.innerText = `${currentQuestion.temperatureInCelcius} Celcius`
-    jarak.innerText = `${currentQuestion.distanceFromSunInAstronomicalUnits} Au`
+    suhu.innerText = `Temp: ${currentQuestion.temperatureInCelcius} °C`
+    jarak.innerText = `${currentQuestion.distanceFromSunInAstronomicalUnits} Au from sun`
     type.innerText = currentQuestion.typeOfPlanet
-    ukuran.innerText = `${currentQuestion.diameterInKilometers} Km`
+    ukuran.innerText = `Diameter: ${currentQuestion.diameterInKilometers} Km`
     ciri5.innerText = `${currentQuestion.totalNaturalSatellites} Satelites`
 
     isAnswered = false
