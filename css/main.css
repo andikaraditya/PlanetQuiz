@@ -153,14 +153,16 @@ td
 
 .ciri {
     width: 120px;
-    height: 40px;
+    height: 60px;
     border-radius: 5%;
     padding: 5px;
+    padding-top: 10px;
     text-align: center;
     background-color: rgba(0, 0, 0, 0.514);
     outline: solid 2px rgb(255, 255, 255);
     color: whitesmoke;
     letter-spacing: 5px;
+    line-height: 22px;
 }
   
 #circle {
@@ -179,7 +181,7 @@ td
 }
 
 #suhu {
-    
+
     position: absolute;
     margin-left: 100px;
     margin-top: 100px;
@@ -189,7 +191,7 @@ td
     position: absolute;
     margin-left: 80px;
     margin-top: 200px;
-    line-height: 40px;
+    font-size: 1rem;
 }
 
 #type {
@@ -202,6 +204,7 @@ td
     position: absolute;
     margin-left: 650px;
     margin-top: 100px;
+    font-size: 1rem;
 }
 
 #ciri-5 {
