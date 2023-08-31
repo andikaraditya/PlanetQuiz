@@ -194,7 +194,7 @@ function sortLeaderboard() {
 function updateLeaderboard() {
     // Untuk refresh tampilan leaderboard
     sortLeaderboard()
-    if (leaderboard.length === 5) {
+    if (leaderboard.length === 6) {
         leaderboard.pop()
     }
     let leaderboardTable = document.querySelector("table")
