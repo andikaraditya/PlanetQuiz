@@ -328,6 +328,9 @@ td
     display: block;
 }
 
+#planetImage {
+    width: 200px;
+}
 
 
 

@@ -16,6 +16,7 @@
             <ul>
                 <li class="currentPlayer"><span>Astronout Kevin on Mission</span></li>
                 <li><button class="change" onclick="softReset()">Choose Astronout</button></li>
+                <li id="currentScore">Current Score: 0</li>
             </ul>
         </div>
         <div class="parallelogram"></div>
@@ -68,7 +69,7 @@
     <!------------------------------------LEADERBOARD ------------------------------------------>
     
     <div class="question">
-        <div id="circle">?</div>
+        <div id="circle"><img class="remove" src="Image\venus.png" id="planetImage"></div>
         <div id="suhu" class="ciri">suhu</div>
         <div id="jarak" class="ciri">jarak</div>
         <div id="type" class="ciri">type</div>
@@ -76,8 +77,8 @@
         <div id="ciri-5" class="ciri">ciri-5</div>
         <input id="userAnswer" type="text" placeholder="JUST GUESS">
         <button id="next" onclick="nextQuestion()">Give Me More !!!</button>
-        <button id="menyerah" onclick="softReset()">Give Up</button>
-        <button id="detail" onclick="location.href = '#description'">Explore More</button>
+        <button id="menyerah" onclick="toggleAnswer()">Give Up</button>
+        <button id="detail" class="remove" onclick="location.href = '#description'">Explore More</button>
         <div class="line-1"></div>
         <div class="line-2"></div>
         <div class="line-3"></div>
