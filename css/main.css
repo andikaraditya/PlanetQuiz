@@ -1,0 +1,328 @@
+@font-face {
+    font-family: 'montserratlight';
+    src: url(../font/montserrat/montserrat-light-webfont.woff) format('woff');
+}
+body {
+    font: 18px 'montserratlight', arial, sans-serif;
+    background-image: url(../Image/background.jpg);
+    background-size: cover;
+    color: white;
+}
+
+.title {
+    text-align: left;
+    float: left;
+    line-height: 50px;
+    height: 50px;
+    width: 600px;
+    padding-left: 15px;
+    font-size: 40px;
+    background-image: linear-gradient(to right,  rgb(254, 255, 222), rgba(0, 0, 0, 0.445));
+    letter-spacing: 10px;
+    color: black;
+    /* margin-left: 20px; */
+}
+.title span {
+    font-weight: 1000;
+}
+.change {
+    background-color: rgba(255, 255, 255, 0.575);
+    outline: solid 1px rgb(255, 255, 255);
+    color: whitesmoke;
+    /* border: none; */
+    height: 40px;
+    width: 200px;
+    font-size: 15px;
+    letter-spacing: 5px;
+    font-weight: bolder;
+}
+
+.currentPlayer {
+    margin-top: 2px;
+    line-height: 18px;
+    text-align: center;
+    background-color: rgba(255, 255, 255, 0.712);
+    color: rgb(0, 0, 0);
+    height: 37px;
+    width: 251px;
+    font-size: 15px;
+    letter-spacing: 5px;
+    font-weight: bold;
+    margin-right: 25px;
+}
+
+.header-list li {
+    list-style: none;
+    float: right;
+    padding: 2px 10px;
+}
+
+.parallelogram {
+      padding-left: 20px;
+      margin-top: 25px;
+      float: left;
+      width: 1300px;
+      height: 5px;
+      transform: skew(20deg);
+      background-image: linear-gradient(to right,  rgba(255, 255, 255, 0), rgb(255, 252, 50));
+    }
+    
+  
+    /* ====================================================================================== */
+  
+    
+  
+.content {
+    display: flex;
+    flex-direction: row;
+    position: relative;
+    width: 100%;
+    height: 500px;
+    background-color: rgba(172, 255, 47, 0);
+    color: black;
+}
+
+.contLeader {
+    margin-top: 50px;
+    padding-top: 50px;
+    background-image: linear-gradient(to right,  rgb(254, 255, 222), rgba(0, 0, 0, 0));
+    /* padding-top: 20px; */
+    height: 400px;
+    width: 25%;
+}
+
+table {
+    counter-reset: tableCount; 
+}
+
+table,
+tr,
+td
+{
+    color: black;
+    font-size: 15px;    
+    font-weight: bold;
+    height: 40px;
+    width: 300px ;
+    padding-left: 5px;
+
+}
+
+.counterCell:before {              
+    content: counter(tableCount); 
+    counter-increment: tableCount; 
+}
+
+
+
+.leaderboard {
+    text-align: center;
+    padding-left: 10px;
+    color: rgb(0, 0, 0);
+    font-size: larger;
+    letter-spacing: 5px;
+    font-weight: bolder;
+    padding-bottom: 10px;
+    text-decoration: underline;
+}
+
+
+/* =================================================================== */
+
+
+
+
+
+
+
+
+
+
+.question {
+    /* display: flex; */
+    background-color: rgba(0, 0, 0, 0.596);
+    position: relative;
+    margin-left: 100px;
+    margin-right: 50px;
+    margin-top:  50px;
+    height: 450px;
+    width : 70%;
+    
+    
+}
+
+.ciri {
+    width: 120px;
+    height: 20px;
+    border-radius: 5%;
+    padding: 5px;
+    text-align: center;
+    background-color: rgba(0, 0, 0, 0.514);
+    outline: solid 2px rgb(255, 255, 255);
+    color: whitesmoke;
+    letter-spacing: 5px;
+}
+  
+#circle {
+    font-size: 150px;
+    color: whitesmoke;
+    text-align: center;
+    line-height: 200px;
+    position: absolute;
+    width: 200px;
+    height: 200px;
+    margin-left: 350px;
+    margin-Top: 100px;
+    border-radius: 50%;
+    background-color: rgba(0, 0, 0, 0.514);
+    outline: dashed 2px rgb(255, 255, 255);
+}
+
+#suhu {
+    
+    position: absolute;
+    margin-left: 100px;
+    margin-top: 100px;
+}
+
+#jarak {
+    position: absolute;
+    margin-left: 80px;
+    margin-top: 200px;
+}
+
+#type {
+    position: absolute;
+    margin-left: 390px;
+    margin-top: 20px;
+}
+
+#ukuran {
+    position: absolute;
+    margin-left: 650px;
+    margin-top: 100px;
+}
+
+#ciri-5 {
+    position: absolute;
+    margin-left: 700px;
+    margin-top: 200px;
+}
+
+#userAnswer {
+    position: absolute;
+    margin-left: 340px;
+    margin-top: 350px;
+    width: 200px;
+    padding: 12px 20px;
+    border: none;
+    background-color: #ffffe9;
+    color: rgb(0, 0, 0);
+    text-align: center;
+    letter-spacing: 3px;
+}
+
+#next {
+    position: absolute;
+    height: 40px;
+    width: 150px;
+    margin-left: 600px;
+    margin-top: 349px;
+    background-color: rgba(255, 255, 255, 0.575);
+    outline: solid 1px rgb(255, 255, 255);
+    color: whitesmoke;
+}
+
+#menyerah {
+    position: absolute;
+    height: 40px;
+    width: 150px;
+    margin-left: 170px;
+    margin-top: 349px;
+    background-color: rgba(255, 255, 255, 0.575);
+    outline: solid 1px rgb(255, 255, 255);
+    color: whitesmoke;
+}
+
+#detail {
+    position: absolute;
+    height: 40px;
+    width: 80px;
+    margin-left: 250px;
+    margin-top: 250px;
+    background-color: rgba(85, 85, 85, 0.76);
+    /* outline: dotted 1px rgb(255, 255, 255); */
+    color: whitesmoke;
+    letter-spacing: 2px;
+}
+
+.line-1 {
+    position: absolute;
+    margin-top: 110px;
+    margin-left: 280px;
+    width: 25px;
+    height: 60px;
+    border-top: 2px solid rgb(255, 255, 255);
+    border-right: 2px solid rgb(255, 255, 255);
+    transform: skew(50deg);
+}
+
+.line-2 {
+    position: absolute;
+    margin-top: 110px;
+    margin-left: 580px;
+    width: 25px;
+    height: 60px;
+    border-top: 2px solid rgb(255, 255, 255);
+    border-left: 2px solid rgb(255, 255, 255);
+    transform: skew(-40deg);
+    }
+
+/* .close, */
+.overlay{
+    position: fixed;
+    height: 0;
+    width: 0;
+    top: 0;
+    right: 0;
+    background-color: rgba(0, 0, 0, 0);
+    transition: 1s;
+    z-index: 9999;
+    text-align: center;
+    padding: 100px;
+    color: rgba(255, 255, 255, 0);
+    display: none;
+    
+}
+
+.overlay:target{
+    display:inline-block ;
+    color: rgb(255, 255, 255);
+    height: auto;
+    width: auto;
+    left: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.9);
+}
+
+.close {
+    color: rgb(255, 255, 255);
+    text-decoration: none;
+    font-weight: bolder;
+    letter-spacing: 3px;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
