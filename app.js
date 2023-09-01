@@ -96,6 +96,8 @@ let questionList = []
 let user = {}
 let isAnswered = false
 let currentQuestion = {}
+let isGiveUp = false
+let isLose = false
 
 function randomQuestion() {
     // Untuk menhasilkan pertanyaan acak
@@ -118,6 +120,8 @@ function adjustScore(isCorrect) {
     } else {
         leaderboard.push(user)
         updateLeaderboard()
+        alert(`Wrong answer!!! The correct answer is ${currentQuestion.name}`)
+        showAnswer()
     }
     console.log(leaderboard)
 }
@@ -127,14 +131,13 @@ function checkAnswer(answer) {
 
     if (answer.toLowerCase() === currentQuestion.name.toLowerCase()) {
         adjustScore(true)
+        showAnswer()
         console.log("benar")
-        let isiDeskripsi = document.getElementById("isiDeskripsi")
-        isiDeskripsi.innerText = currentQuestion.description
     } else {
         // alert("Kamu salah")
         console.log("salah")
         adjustScore(false)
-        resetGame()
+        isLose = true
     }
 }
 
@@ -165,15 +168,17 @@ function resetQuestion() {
 
 function resetGame() {
     // Untuk mengulang game
-    isAnswered = true
+    isGiveUp = false
+    isLose = false
+    hideAnswer()
     updateLeaderboard()
     generateUser()
     resetQuestion()
-    nextQuestion()
+    showQuestion()
 }
 
 function softReset() {
-    leaderboard.push(user)
+    // leaderboard.push(user)
     // toggleAnswer()
     resetGame()
 }
@@ -220,7 +225,7 @@ function sendAnswer(answer) {
     // Untuk mengambil input jawaban dan mengirimkan ke checkAnswer()
     // let answer = document.getElementById("userAnswer")
     isAnswered = true
-    toggleAnswer()
+    // toggleAnswer()
     checkAnswer(answer.value)
     userAnswerBox.value = ""
 }
@@ -228,19 +233,33 @@ function sendAnswer(answer) {
 function nextQuestion() {
     // Menampilkan pertanyaan baru
     // isAnswered = true
-    if (!isAnswered) {
-        alert("Pertanyaan belum dijawab")
+    if (isGiveUp) {
+        alert("You gave given up!!! Choose new astronaut!!")
         return
     }
-    toggleAnswer()
+    if (isLose) {
+        alert("You have lose!!! Choose new astronaut!!")
+        return
+    }
+    if (!isAnswered) {
+        alert("Answer the question first!!")
+        return
+    }
+    // toggleAnswer()
+    showQuestion()
+}
+
+function showQuestion() {
     console.log("pass")
     currentQuestion = randomQuestion()
+    hideAnswer()
 
     let suhu = document.getElementById("suhu")
     let jarak = document.getElementById("jarak")
     let type = document.getElementById("type")
     let ukuran = document.getElementById("ukuran")
     let ciri5 = document.getElementById("ciri-5")
+    let isiDeskripsi = document.getElementById("isiDeskripsi")
 
     planetImage.src = currentQuestion.img
     suhu.innerText = `Temp: ${currentQuestion.temperatureInCelcius} °C`
@@ -248,13 +267,30 @@ function nextQuestion() {
     type.innerText = currentQuestion.typeOfPlanet
     ukuran.innerText = `Diameter: ${currentQuestion.diameterInKilometers} Km`
     ciri5.innerText = `${currentQuestion.totalNaturalSatellites} Satelites`
+    isiDeskripsi.innerText = currentQuestion.description
 
     isAnswered = false
 }
 
-function toggleAnswer() {
-    showDetails.classList.toggle("remove")
-    planetImage.classList.toggle("remove")
+// function toggleAnswer() {
+//     showDetails.classList.toggle("remove")
+//     planetImage.classList.toggle("remove")
+// }
+
+function showAnswer() {
+    showDetails.classList.remove("remove")
+    planetImage.classList.remove("remove")
+}
+
+function hideAnswer() {
+    showDetails.classList.add("remove")
+    planetImage.classList.add("remove")
+}
+
+function giveUp() {
+    showAnswer()
+    leaderboard.push(user)
+    isGiveUp = true
 }
 
 let userAnswerBox = document.getElementById("userAnswer")
@@ -267,6 +303,6 @@ userAnswerBox.addEventListener("keypress", function (e) {
 let showDetails = document.querySelector("#detail")
 let planetImage = document.getElementById("planetImage")
 let currentScore = document.getElementById("currentScore")
-toggleAnswer()
+// toggleAnswer()
 
 resetGame()
